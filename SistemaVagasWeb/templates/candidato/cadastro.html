@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de vagas</title>
+    <link href="{% static 'css/menu.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'css/crud.css' %}" type="text/css" rel="stylesheet">
+</head>
+    <body>
+        {% include "../menu.html" %}
+    </body>
+    <main>
+        <div class="conteiner">
+            <div class="divForm">
+                <form onsubmit="/candidato" id="form-cadastro" method="post">
+                    {{ form }}
+                    <input type="submit" id="submit-button" value="Enviar"/>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+    </main>
+</html>
