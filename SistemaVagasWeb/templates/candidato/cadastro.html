@@ -9,16 +9,48 @@
 </head>
     <body>
         {% include "../menu.html" %}
-    </body>
-    <main>
-        <div class="conteiner">
-            <div class="divForm">
-                <form onsubmit="/candidato" id="form-cadastro" method="post">
-                    {{ form }}
-                    <input type="submit" id="submit-button" value="Enviar"/>
-                    {% csrf_token %}
-                </form>
+        <main>
+            <div class="conteiner">
+                    <!--
+                    {% if candidatos_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Candidado</th>
+                                <th>Pretensão Salarial</th>
+                                <th>Experiencia</th>
+                                <th>Escolaridade</th>
+                                <th>Clique para alterar</th>
+                                <th>Clique para excluir</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for candidato in candidatos_list %}
+                                <tr>
+                                    <td>{{ candidato.nome }}</td>
+                                    <td>{{ candidato.pretencaoSalarial }}</td>
+                                    <td>{{ candidato.experiencia }}</td>
+                                    <td>{{ candidato.escolaridade }}</td>
+                                    <td><button>Alterar</button></td>
+                                    <td><button>Excluir</button></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <p>Nenhum dado cadastrado.</p>
+                    {% endif %}
+                    -->
+                <h2>Cadastro de candidato</h2>
+                <div class="divForm">
+                    <form onsubmit="/candidato" id="form-cadastro" method="post">
+                        {{ form }}
+                        <input type="submit" id="submit-button" value="Enviar"/>
+                        {% csrf_token %}
+                    </form>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </body>
 </html>

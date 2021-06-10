@@ -1,3 +1,5 @@
 from django.contrib import admin
+from candidato.models import candidato
 
-# Register your models here.
+admin.site.register(candidato)
+

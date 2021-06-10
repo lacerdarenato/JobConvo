@@ -10,10 +10,10 @@ ESCOLARIDADE_OPCOES = (
 )
 
 class candidato(models.Model):
-    name = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100)
     pretencaoSalarial = models.IntegerField()
     experiencia = models.CharField( max_length=100)
     escolaridade = models.CharField(max_length=1, choices=ESCOLARIDADE_OPCOES)
 
     def __str__(self):
-        return self.name
+        return self.nome

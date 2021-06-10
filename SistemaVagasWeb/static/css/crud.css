@@ -21,13 +21,8 @@ form label {
     font-size: 1.3em;
     padding-bottom: 0.5em;
 }
-
-.input-padrao {
-    display: block;
-    margin: auto;
-    padding: 10px 25px;
-    width: 100%;
-    border-radius: 5px;
+input {
+    display: flex;
 }
 
 .enviar-button {
@@ -39,46 +34,19 @@ form label {
     font-size: 1em;
 }
 
-.list-button {
-    border: none;
+#submit-button{
     border-radius: 5px;
     padding: 2px 10px;
     font-size: 1em;
-}
-
-.apagar-button {
-    background: mediumslateblue;
-}
-
-.editar-button {
-    background: darkseagreen;
-}
-
-.enviar:hover {
-    color: white;
-    background: #00a293;
-    transform: scale(1.2);
+    padding: 0.5em;
+    margin: 1em 0em;
 }
 
 .conteiner {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: stretch;
     padding: 10px;
     border: solid;
     border-width: 1px;
-}
-
-.div-conteiner-center {
-    padding-top: 5px;
-    width: 100%;
-}
-
-.errorlist li {
-    background-color: white;
-    color: red;
-}
-
-.errorlist {
-    background-color: white;
 }
