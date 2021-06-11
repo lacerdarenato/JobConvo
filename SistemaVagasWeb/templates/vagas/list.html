@@ -14,6 +14,13 @@
         <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar">
         <i class="fas fa-search"></i>
     </div>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <ul class="vaga-list">
         {% for vaga in vagas %}
         <li class="vaga-item">

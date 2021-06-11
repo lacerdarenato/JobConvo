@@ -19,6 +19,7 @@ def newVaga(request):
         form = VagaForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
+            messages.info(request, 'Vaga criada com sucesso!')
             return redirect('/vagas')
         else:
             print("Formulário Inválido")
@@ -33,6 +34,8 @@ def editVaga(request, id):
         form = VagaForm(request.POST, instance=vagaItem)
         if(form.is_valid()):
             vagaItem.save()
+
+            messages.info(request, 'Vaga editada com sucesso!')
             return redirect('/vagas')
         else:
             return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
@@ -42,4 +45,6 @@ def editVaga(request, id):
 def deleteVaga(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
     vagaItem.delete()
+
+    messages.info(request, 'Vaga deletada com sucesso!')
     return redirect('/vagas')
