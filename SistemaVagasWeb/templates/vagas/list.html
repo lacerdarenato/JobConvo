@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %} Lista de tarefas {% endblock %}
+{% block title %} Lista de vagas {% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
    <h1>Lista de Vagas</h1>
-    <div class="col-2 add-div">
-        <i class="fas fa-plus"></i> Adicionar vaga
-    </div>
+    <a id="add-link" href="vagas/newvaga/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i> Adicionar vaga
+        </div>
+    </a>
     <div class="col-9 search-div">
         <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar">
         <i class="fas fa-search"></i>
