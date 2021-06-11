@@ -18,7 +18,7 @@
         {% for vaga in vagas %}
         <li class="vaga-item">
             <span><a href="vagas/{{vaga.id}}">{{vaga.title}}</a></span>
-            <span><i class="fas fa-trash"></i></span>
+            <span><a href="vagas/deletevaga/{{vaga.id}}"><i class="fas fa-trash"></i></a></span>
             <span><a href="vagas/editvaga/{{vaga.id}}"><i class="fas fa-edit"></i></a></span>
         </li>
         {% endfor %}

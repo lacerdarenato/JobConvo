@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 from .forms import VagaForm
 from .models import vaga
@@ -37,3 +38,8 @@ def editVaga(request, id):
             return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
     else:
         return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
+
+def deleteVaga(request, id):
+    vagaItem = get_object_or_404(vaga, pk=id)
+    vagaItem.delete()
+    return redirect('/vagas')
