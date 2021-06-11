@@ -23,3 +23,17 @@ def newVaga(request):
             print("Formulário Inválido")
     form = VagaForm()
     return render(request, 'vagas/addvaga.html', {'form': form})
+
+def editVaga(request, id):
+    vagaItem = get_object_or_404(vaga, pk=id)
+    form = VagaForm(instance=vagaItem)
+
+    if(request.method == 'POST'):
+        form = VagaForm(request.POST, instance=vagaItem)
+        if(form.is_valid()):
+            vagaItem.save()
+            return redirect('/vagas')
+        else:
+            return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
+    else:
+        return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})

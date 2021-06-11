@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %} Adicione uma Vaga {% endblock %}
+{% block title %} Editando a vaga '{{vaga.title}}' {% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>Preencha os dados da sua vaga</h1>
+    <h1>Editando a vaga '{{vaga.title}}'</h1>
     <form method="POST">
       {% csrf_token %}
       {{form.as_p}}
-      <input type="submit" class="btn btn-success" value="Criar Vaga">
+      <input type="submit" class="btn btn-success" value="Editar Vaga">
     </form>
 </div>
 {% endblock %}

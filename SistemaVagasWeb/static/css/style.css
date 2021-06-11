@@ -89,6 +89,12 @@ list-div{
     color: #13c43f
 }
 
+/* block content*/
+
+.btn.btn-success{
+    margin-bottom: 20px;
+}
+
 /* Rodapé */
 
 footer {
