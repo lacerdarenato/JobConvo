@@ -22,6 +22,69 @@
     letter-spacing: 1px;
 }
 
+/* Botão de adicionar */
+
+.add-div{
+    background-color: #3476e2;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+.fas.pa-plus{
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+/* search */
+
+.fas.fa-search {
+    position: absolute;
+    top: 12px;
+    right: 26px;
+}
+
+.search-div{
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Lista de Vagas*/
+
+list-div{
+    padding: 0;
+}
+
+.vaga-list{
+    padding-left: 0;
+}
+
+.vaga-item{
+    list-style: none;
+    font-size: 20px;
+    height: 50px;
+    border-top: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.fas.fa-trash, .fas.fa-edit {
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+}
+
+.fas.fa-trash {
+    color: #db1e47
+}
+.fas.fa-edit {
+    color: #13c43f
+}
+
 /* Rodapé */
 
 footer {

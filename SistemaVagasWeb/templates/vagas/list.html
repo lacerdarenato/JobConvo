@@ -3,5 +3,23 @@
 {% block title %} Lista de tarefas {% endblock %}
 
 {% block content %}
-<h1>Lista de tarefas</h1>
+<div class="offset-1 col-10 list-div">
+   <h1>Lista de Vagas</h1>
+    <div class="col-2 add-div">
+        <i class="fas fa-plus"></i> Adicionar vaga
+    </div>
+    <div class="col-9 search-div">
+        <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar">
+        <i class="fas fa-search"></i>
+    </div>
+    <ul class="vaga-list">
+        {% for vaga in vagas %}
+        <li class="vaga-item">
+            <span><a href="vagas/{{vaga.id}}">{{vaga.title}}</a></span>
+            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-edit"></i></span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
