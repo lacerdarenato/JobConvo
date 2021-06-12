@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %} Lista de tarefas {% endblock %}
+{% block title %} Vaga '{{vaga.title}}'{% endblock %}
 
 {% block content %}
 <div class="offset-1 col-10 list-div">
-    <h1>{{vaga.title}}</h1>
-    <p>{{vaga.requirements}}</p>
-    <p>{{vaga.salaryRange}}</p>
-    <p>{{vaga.minimalEducationLevel}}</p>
+    <h1>Detalhes da vaga '{{vaga.title}}'</h1>
+    <p>Requisitos: {{vaga.requirements}}</p>
+    <p>Faixa Salarial: {{vaga.get_salaryRange_display}}</p>
+    <p>Escolaridade Mínima: {{vaga.get_minimalEducationLevel_display}}</p>
+    <p>Lista de candidatos inscritos</p>
+    <p>Lista de dada de inscrição dos candidatos</p>
 </div>
 {% endblock %}

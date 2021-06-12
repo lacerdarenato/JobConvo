@@ -45,9 +45,13 @@
 /* search */
 
 .fas.fa-search {
-    position: absolute;
-    top: 12px;
-    right: 26px;
+    position:absolute;
+    top:12px; right:26px;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+    cursor: pointer;
 }
 
 .search-div{
@@ -55,6 +59,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     display: inline-block;
+    position: relative;
 }
 
 /* Lista de Vagas*/
@@ -118,4 +123,27 @@ ul.messages{
 
 ul.messages li{
     list-style: none;
+}
+
+/* login */
+
+.auth-card{
+    margin-botton: 30px;
+}
+
+/* Paginação */
+
+.pagination{
+    margin-bottom: 20px;
+}
+
+.step-links{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ste-links .current{
+    margin-left: 5px;
+    margin-right: 5px;
 }

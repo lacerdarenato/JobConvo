@@ -11,8 +11,11 @@
         </div>
     </a>
     <div class="col-9 search-div">
-        <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar">
-        <i class="fas fa-search"></i>
+        <form method="get" id="search-form">
+            <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar" value="{{request.GET.search}}">
+            <i class="fas fa-search" id="search-btn"></i>
+
+        </form>
     </div>
     {% if messages %}
         <ul class="messages">
@@ -30,5 +33,22 @@
         </li>
         {% endfor %}
     </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if vagas.has_previous %}
+                <a href="vagas/?page={{ vagas.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+
+            {% if vagas.paginator.num_pages %}
+            <span class="current">
+                {{ vagas.number }} de {{ vagas.paginator.num_pages }}
+            </span>
+            {% endif %}
+
+            {% if vagas.has_next %}
+                <a href="vagas/?page={{ vagas.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 {% endblock %}
