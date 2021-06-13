@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %} Adicione uma Vaga {% endblock %}
+{% block title %} Painel da Empresa{% endblock %}
 
 {% block content %}
 <div class="offset-6 col-10 title-div">
-    <h2>Bem Vindo {{ empresa.title }}</h2>
+    <h2>Bem Vindo {{ empresa.title }} teste</h2>
 </div>
 
 <div class="offset-1 col-10 list-div">
-    <a id="add-link" href="vagas/newvaga/">
-        <div class="col-3 add-div">
+    <a id="add-vaga-link" href="vagas/newvaga/">
+        <div class="col-2 add-div">
             <i class="fas fa-plus"></i> Adicionar vaga
         </div>
     </a>
     <a id="list-link" href="vagas/">
-        <div class="col-3 add-div">
+        <div class="col-2 add-div">
             <i class="fas fa-clipboard-list"></i> Vagas Criadas
         </div>
     </a>
     <a id="chart-link" href="#">
-        <div class="col-3 add-div">
+        <div class="col-2 add-div">
             <i class="fas fa-chart-bar"></i> Relatório
+        </div>
+    </a>
+    <a id="add-empresa-link" href="empresas/newempresa/">
+        <div class="col-2 add-div">
+            <i class="fas fa-chart-bar"></i> Nova Empresa
         </div>
     </a>
 </div>

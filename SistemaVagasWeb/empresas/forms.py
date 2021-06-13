@@ -7,4 +7,4 @@ class EmpresaForm(forms.ModelForm):
 
     class Meta:
         model = empresa
-        fields = 'title'
+        fields = ('title',)

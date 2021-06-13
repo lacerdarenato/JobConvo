@@ -15,9 +15,9 @@ def vagasList(request):
 
     search = request.GET.get('search')
     if search:
-        vagas = vaga.objects.filter(title__icontains=search)
+        vagas = vaga.objects.filter(title__icontains=search, user=request.user)
     else:
-        vagaslist = vaga.objects.all().order_by('-created_at')
+        vagaslist = vaga.objects.all().order_by('-created_at').filter(user=request.user)
         paginator = Paginator(vagaslist, 5)
         page = request.GET.get('page')
         vagas = paginator.get_page(page)
@@ -43,13 +43,14 @@ def newVaga(request):
     if request.method == 'POST':
         form = VagaForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
+            vaga = form.save(commit=False)
+            vaga.user = request.user
+            vaga.save()
             messages.info(request, 'Vaga criada com sucesso!')
             return redirect('/vagas')
-        else:
-            print("Formulário Inválido")
-    form = VagaForm()
-    return render(request, 'vagas/addvaga.html', {'form': form})
+    else:
+        form = VagaForm()
+        return render(request, 'vagas/addvaga.html', {'form': form})
 @login_required
 def editVaga(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
