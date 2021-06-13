@@ -1,18 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %} Vaga '{{vaga.title}}'{% endblock %}
+{% block title %} Candidato '{{vaga.title}}'{% endblock %}
 
 {% block content %}
-<div class="offset-1 col-10 list-div">
-    <h1>Detalhes da vaga '{{vaga.title}}'</h1>
-    <p>Requisitos: {{vaga.requirements}}</p>
-    <p>Faixa Salarial: {{vaga.get_salaryRange_display}}</p>
-    <p>Escolaridade Mínima: {{vaga.get_minimalEducationLevel_display}}</p>
-</div>
-<div>
-    {% if candidatos_list %}
-    <div class="offset-1 col-10 vaga-list-title">Lista de candidatos inscritos</div>
-    <table class="offset-1 col-10 vaga-list">
+  <table class="offset-1 col-10 vaga-list">
           <thead>
               <tr>
                   <th>Candidado</th>
@@ -27,7 +18,7 @@
                                   <td>{{ candidato.nome }}</td>
                                   <td>{{ candidato.pretencaoSalarial }}</td>
                                   <td>{{ candidato.experiencia }}</td>
-                                  <td>{{ candidato.get_escolaridade_display }}</td>
+                                  <td>{{ candidato.escolaridade }}</td>
                               </tr>
                           {% endfor %}
                       </tbody>
@@ -35,5 +26,4 @@
     {% else %}
         <p>Nenhum candidato inscrito.</p>
     {% endif %}
-</div>
 {% endblock %}

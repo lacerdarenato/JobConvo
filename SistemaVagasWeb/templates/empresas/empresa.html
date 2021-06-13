@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Adicione uma Vaga {% endblock %}
+
+{% block content %}
+<div class="offset-6 col-10 title-div">
+    <h2>Bem Vindo {{ empresa.title }}</h2>
+</div>
+
+<div class="offset-1 col-10 list-div">
+    <a id="add-link" href="vagas/newvaga/">
+        <div class="col-3 add-div">
+            <i class="fas fa-plus"></i> Adicionar vaga
+        </div>
+    </a>
+    <a id="list-link" href="vagas/">
+        <div class="col-3 add-div">
+            <i class="fas fa-clipboard-list"></i> Vagas Criadas
+        </div>
+    </a>
+    <a id="chart-link" href="#">
+        <div class="col-3 add-div">
+            <i class="fas fa-chart-bar"></i> Relatório
+        </div>
+    </a>
+</div>
+{% endblock %}

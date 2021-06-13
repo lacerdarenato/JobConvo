@@ -64,8 +64,17 @@
 
 /* Lista de Vagas*/
 
+title-div{
+    text-align: center;
+    font-size: 30px;
+}
+
 list-div{
     padding: 0;
+}
+.vaga-list-title{
+    text-align: center;
+    font-size: 30px;
 }
 
 .vaga-list{
@@ -80,7 +89,7 @@ list-div{
     border-bottom: 1px dashed #ccc;
 }
 
-.fas.fa-trash, .fas.fa-edit {
+.fas.fa-trash, .fas.fa-edit, .fas.fa-check {
     cursor: pointer;
     margin: 5px;
     font-size: 20px;
@@ -104,7 +113,7 @@ list-div{
 
 footer {
     background-color: #333;
-    height: 300px;
+    height: 50px;
     border-top: 2px solid #202020;
 }
 

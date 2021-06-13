@@ -5,9 +5,9 @@
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/SistemaVagasWeb" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/principal" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/static" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/candidatos" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/empresas" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/vagas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/candidato" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/VirtualEnv" />
     </content>
     <orderEntry type="inheritedJdk" />

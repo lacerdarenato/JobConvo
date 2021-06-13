@@ -9,6 +9,7 @@ ESCOLARIDADE_OPCOES = (
     ('6', 'Doutorado'),
 )
 
+
 class candidato(models.Model):
     nome = models.CharField(max_length=100)
     pretencaoSalarial = models.IntegerField()

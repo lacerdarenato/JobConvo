@@ -5,6 +5,13 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
    <h1>Lista de Vagas</h1>
+    <!-- { if empresa } -->
+    <a id="add-link" href="vagas/newvaga/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i> Adicionar vaga
+        </div>
+    </a>
+    <!-- { endif empresa } -->
     <div class="col-9 search-div">
         <form method="get" id="search-form">
             <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar" value="{{request.GET.search}}">

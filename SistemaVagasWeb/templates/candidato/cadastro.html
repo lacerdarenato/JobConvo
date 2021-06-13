@@ -1,56 +1,19 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Sistema de vagas</title>
-    <link href="{% static 'css/menu.css' %}" type="text/css" rel="stylesheet">
-    <link href="{% static 'css/crud.css' %}" type="text/css" rel="stylesheet">
-</head>
-    <body>
-        {% include "../menu.html" %}
-        <main>
-            <div class="conteiner">
-                    <!--
-                    {% if candidatos_list %}
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Candidado</th>
-                                <th>Pretensão Salarial</th>
-                                <th>Experiencia</th>
-                                <th>Escolaridade</th>
-                                <th>Clique para alterar</th>
-                                <th>Clique para excluir</th>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for candidato in candidatos_list %}
-                                <tr>
-                                    <td>{{ candidato.nome }}</td>
-                                    <td>{{ candidato.pretencaoSalarial }}</td>
-                                    <td>{{ candidato.experiencia }}</td>
-                                    <td>{{ candidato.escolaridade }}</td>
-                                    <td><button>Alterar</button></td>
-                                    <td><button>Excluir</button></td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                        <p>Nenhum dado cadastrado.</p>
-                    {% endif %}
-                    -->
-                <h2>Cadastro de candidato</h2>
-                <div class="divForm">
-                    <form onsubmit="/candidato" id="form-cadastro" method="post">
-                        {{ form }}
+{% block title %} Cadastre seus Dados {% endblock %}
+
+{% block content %}
+
+        <h2>Cadastro de candidato</h2>
+            <div class="divForm">
+                <form onsubmit="/candidato" id="form-cadastro" method="post">
+                    {{ form|crispy }}
                         <input type="submit" id="submit-button" value="Enviar"/>
-                        {% csrf_token %}
-                    </form>
-                </div>
+                    {% csrf_token %}
+                </form>
             </div>
-        </main>
-    </body>
-</html>
+
+{% endblock %}
+
+

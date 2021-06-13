@@ -6,6 +6,10 @@ from django.contrib import messages
 from .forms import VagaForm
 from .models import vaga
 
+from candidato.models import candidato
+from candidato.forms import cadastroForm
+
+
 @login_required
 def vagasList(request):
 
@@ -22,8 +26,18 @@ def vagasList(request):
 @login_required
 def vagaView(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
-    form = VagaForm(request.GET, instance=vagaItem)
-    return render(request, 'vagas/vaga.html', {'form': form, 'vaga': vagaItem})
+    vagaForm = VagaForm(request.GET, instance=vagaItem)
+
+    candidatosItem = candidato.objects.all().order_by('nome')
+    candidatoForm = cadastroForm(request.GET)
+
+    return render(request, 'vagas/vaga.html', {
+        'vagaForm': vagaForm,
+        'vaga': vagaItem,
+        'candidatos_list': candidatosItem,
+        'candidatoForm': candidatoForm
+        })
+
 @login_required
 def newVaga(request):
     if request.method == 'POST':
