@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'vagas',
     'crispy_forms',
     'accounts',
+    'chart',
 
 ]
 
