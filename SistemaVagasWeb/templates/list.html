@@ -5,6 +5,11 @@
 {% block content %}
 <div class="offset-1 col-10 list-div">
    <h1>Lista de Vagas</h1>
+    <a id="add-vaga-link" href="vagas/newvaga/">
+        <div class="col-2 add-div">
+            <i class="fas fa-plus"></i> Adicionar vaga
+        </div>
+    </a>
     <div class="col-9 search-div">
         <form method="get" id="search-form">
             <input class="form-control" type="text" id="search" name="search" placeholder="digite o nome da vaga para buscar" value="{{request.GET.search}}">
@@ -23,11 +28,13 @@
         {% for vaga in vagas %}
         <li class="vaga-item">
             <span><a href="vagas/{{vaga.id}}">{{vaga.title}}</a></span>
-            <!-- { if empresa } -->
-            <span><a href="vagas/deletevaga/{{vaga.id}}"><i class="fas fa-trash"></i></a></span>
-            <span><a href="vagas/editvaga/{{vaga.id}}"><i class="fas fa-edit"></i></a></span>
-            <!-- { else (candidato) } -->
-            <span><a href="vagas/editvaga/{{vaga.id}}"><i class="fas fa-check"></i></a></span>
+            {% if user.groups.all.0.name == "empresa" %}
+                <span><a href="vagas/deletevaga/{{vaga.id}}"><i class="fas fa-trash"></i></a></span>
+                <span><a href="vagas/editvaga/{{vaga.id}}"><i class="fas fa-edit"></i></a></span>
+            {% endif %}
+            {% if user.groups.all.0.name == "candidato" %}
+                <span><a href="#"><i class="fas fa-check"></i></a></span>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>

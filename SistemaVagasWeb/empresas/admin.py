@@ -1,3 +1,4 @@
 from django.contrib import admin
+from empresas.models import empresa
 
-# Register your models here.
+admin.site.register(empresa)

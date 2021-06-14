@@ -22,18 +22,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                   {% if user.is_authenticated %}
-                  <li class="nav-item">
-                      <a class="nav-link"  href="candidato/">Candidato</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="vagas/">Vagas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="empresas/">Empresa</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/accounts/logout">Sair</a>
-                    </li>
+                        {% if user.groups.all.0.name == "empresa" %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="empresas/">Empresa</a>
+                          </li>
+                        {% endif %}
+                        {% if user.groups.all.0.name == "candidato" %}
+                          <li class="nav-item">
+                              <a class="nav-link"  href="candidato/">Candidato</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="vagas/">Vagas</a>
+                          </li>
+                        {% endif %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="/accounts/logout">Sair</a>
+                        </li>
                   {% else %}
                     <li class="nav-item">
                       <a class="nav-link" href="/accounts/login">Entrar</a>

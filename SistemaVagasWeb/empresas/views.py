@@ -5,6 +5,7 @@ from django.contrib import messages
 from .forms import EmpresaForm
 from .models import empresa
 
+@login_required()
 def newEmpresa(request):
     if request.method == 'POST':
         form = EmpresaForm(request.POST)
@@ -17,7 +18,7 @@ def newEmpresa(request):
     else:
         form = EmpresaForm()
         return render(request, 'empresas/newempresa.html', {'form': form})
-
+@login_required()
 def showEmpresa(request):
 
     empresaItem = empresa.objects.all().order_by('title')

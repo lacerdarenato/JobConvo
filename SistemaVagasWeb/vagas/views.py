@@ -21,7 +21,7 @@ def vagasList(request):
         paginator = Paginator(vagaslist, 5)
         page = request.GET.get('page')
         vagas = paginator.get_page(page)
-    return render(request, 'vagas/list.html', {'vagas': vagas})
+    return render(request, 'list.html', {'vagas': vagas})
 
 @login_required
 def vagaView(request, id):

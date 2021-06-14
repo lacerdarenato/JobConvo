@@ -10,30 +10,32 @@
     <p>Escolaridade Mínima: {{vaga.get_minimalEducationLevel_display}}</p>
 </div>
 <div>
-    {% if candidatos_list %}
-    <div class="offset-1 col-10 vaga-list-title">Lista de candidatos inscritos</div>
-    <table class="offset-1 col-10 vaga-list">
-          <thead>
-              <tr>
-                  <th>Candidado</th>
-                  <th>Pretensão Salarial</th>
-                  <th>Experiencia</th>
-                  <th>Escolaridade</th>
-              </tr>
-                  </thead>
-                      <tbody>
-                          {% for candidato in candidatos_list %}
-                              <tr>
-                                  <td>{{ candidato.nome }}</td>
-                                  <td>{{ candidato.pretencaoSalarial }}</td>
-                                  <td>{{ candidato.experiencia }}</td>
-                                  <td>{{ candidato.get_escolaridade_display }}</td>
-                              </tr>
-                          {% endfor %}
-                      </tbody>
-  </table>
-    {% else %}
-        <p>Nenhum candidato inscrito.</p>
+    {% if user.groups.all.0.name == "empresa" %}
+        {% if candidatos_list %}
+        <div class="offset-1 col-10 vaga-list-title">Lista de candidatos inscritos</div>
+        <table class="offset-1 col-10 vaga-list">
+              <thead>
+                  <tr>
+                      <th>Candidado</th>
+                      <th>Pretensão Salarial</th>
+                      <th>Experiencia</th>
+                      <th>Escolaridade</th>
+                  </tr>
+                      </thead>
+                          <tbody>
+                              {% for candidato in candidatos_list %}
+                                  <tr>
+                                      <td>{{ candidato.nome }}</td>
+                                      <td>{{ candidato.pretencaoSalarial }}</td>
+                                      <td>{{ candidato.experiencia }}</td>
+                                      <td>{{ candidato.get_escolaridade_display }}</td>
+                                  </tr>
+                              {% endfor %}
+                          </tbody>
+        </table>
+        {% else %}
+            <p>Nenhum candidato inscrito.</p>
+        {% endif %}
     {% endif %}
 </div>
 {% endblock %}
