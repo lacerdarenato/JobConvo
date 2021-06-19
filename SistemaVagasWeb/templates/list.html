@@ -33,7 +33,7 @@
                 <span><a href="vagas/editvaga/{{vaga.id}}"><i class="fas fa-edit"></i></a></span>
             {% endif %}
             {% if user.groups.all.0.name == "candidato" %}
-                <span><a href="#"><i class="fas fa-check"></i></a></span>
+                <span><a href="vagas/candidatar/{{vaga.id}}"><i class="fas fa-check"></i></a></span>
             {% endif %}
         </li>
         {% endfor %}

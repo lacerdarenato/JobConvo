@@ -3,8 +3,8 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import VagaForm
-from .models import vaga
+from .forms import VagaForm, CandidaturaForm
+from .models import vaga, Candidatura
 
 from candidato.models import candidato
 from candidato.forms import cadastroForm
@@ -23,6 +23,22 @@ def vagasList(request):
         vagas = paginator.get_page(page)
     return render(request, 'list.html', {'vagas': vagas})
 
+
+@login_required
+def candidatar_vaga(request, id):
+    cand = get_object_or_404(candidato, pk=request.user.id)
+    vg = get_object_or_404(vaga, pk=id)
+    #candidatura = True
+    candidatura = Candidatura.objects.create(cand=cand, vaga=vg)
+    candidatura.save()
+    if candidatura:
+        messages.success(request, "Inscrição realizada com sucesso.")
+        return redirect('/vagas')
+    else:
+        messages.warning(request, "Inscrição não realizada, tente novamente!")
+        return redirect('/vagas')
+
+
 @login_required
 def vagaView(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
@@ -38,6 +54,7 @@ def vagaView(request, id):
         'candidatoForm': candidatoForm
         })
 
+
 @login_required
 def newVaga(request):
     if request.method == 'POST':
@@ -51,26 +68,30 @@ def newVaga(request):
     else:
         form = VagaForm()
         return render(request, 'vagas/addvaga.html', {'form': form})
+
+
 @login_required
 def editVaga(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
     form = VagaForm(instance=vagaItem)
 
-    if(request.method == 'POST'):
+    if request.method == 'POST':
         form = VagaForm(request.POST, instance=vagaItem)
-        if(form.is_valid()):
+        if form.is_valid():
             vagaItem.save()
-
             messages.info(request, 'Vaga editada com sucesso!')
             return redirect('/vagas')
+
         else:
             return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
     else:
         return render(request, 'vagas/editvaga.html', {'form': form, 'vaga': vagaItem})
+
+
 @login_required
 def deleteVaga(request, id):
     vagaItem = get_object_or_404(vaga, pk=id)
     vagaItem.delete()
-
     messages.info(request, 'Vaga deletada com sucesso!')
     return redirect('/vagas')
+

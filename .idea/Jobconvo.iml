@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/accounts" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/candidato" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/chart" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SistemaVagasWeb/candidatura" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/VirtualEnv" />
     </content>
     <orderEntry type="inheritedJdk" />
